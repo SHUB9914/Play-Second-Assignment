@@ -1,0 +1,71 @@
+@(message: String)
+<html>
+<head>
+   <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("bootstrap/bootstrap.min.css")">
+ <script>
+  function signup(){
+  window.location="@routes.SignupController.index()";
+  }
+
+  function login(){
+  window.location="@routes.LoginController.index()";
+  }
+ </script>
+
+<style>
+ .container-fluid {
+      padding: 60px 50px;
+  }
+  .bg-grey {
+      background-color: #f6f6f6;
+  }
+  .logo-small {
+      color: #4d88ff;
+      font-size: 50px;
+  }
+  .logo {
+      color: #4d88ff;
+      font-size: 250px;
+  }
+
+</style>
+</head>
+<body>
+@header("Knolus Software LLP",sinupAndLogin())
+
+ <!-- Container (About Section) -->
+ <div id="about" class="container-fluid">
+  <div class="row">
+   <div class="col-sm-8">
+    <h2>About Kn<span style="color:blue">o</span>ldus  </h2><br>
+    <h4>Knoldus is a team of Passionate Technologists, focused on staying at the edge of the curve.
+     We love to build Scalable, Performant, Concurrent systems with Functional Programming to meet the needs of the business.
+     Our big data solutions have won accolades in domains</h4><br>
+    <p>Every CTO and software professional is concerned with code quality and so are we.
+     It is our passion and the life line of our business. Our success is determined by our partner's successes. Code Quality is the foundation of that success!
+     Our Team takes precise and prescribed steps to create clean, crisp and quality code for our partners.
+     Quality coding begins with an in-depth knowledge of the technology; continues with a high degree of professionalism; and ends with the desire to make every partner 100% satisfied.
+     We use a well defined process called Knolway to produce high quality software. Some of the essential ingredients of the process are :</p>
+
+   </div>
+   <div class="col-sm-4">
+    <span class="glyphicon glyphicon-signal logo"></span>
+   </div>
+  </div>
+ </div>
+
+ <div class="container-fluid bg-grey">
+  <div class="row">
+   <div class="col-sm-4">
+    <span class="glyphicon glyphicon-globe logo"></span>
+   </div>
+   <div class="col-sm-8">
+    <h2>Our Values</h2><br>
+    <h4><strong>MISSION:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+    <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+   </div>
+  </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+@(name:String,content:Html)
+<html>
+   <head>
+       <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("bootstrap/bootstrap.min.css")">
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+       <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+       <script src="@routes.Assets.versioned("bootstrap/bootstrap.min.js")" type="text/javascript"></script>
+       <script src="@routes.Assets.versioned("bootstrap/jqr.js")" type="text/javascript"></script>
+   </head>
+   <style>
+
+  .banner{
+
+    height:265px;
+    background:url('@routes.Assets.versioned("b.jpg")');
+    padding-top:35px;
+}
+</style>
+
+
+<body>
+<div class="banner">
+    <nav class="navbar navbar-inverse " style="background:rgba(0,0,0,0.7)" >
+        <div class="container">
+            <div class="navbar-header ">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="@routes.Assets.versioned("knoldus.png")" style="max-width:100px; margin-top:-7px;margin-right:50px;"></a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+
+                    <li><a href="http://www.knoldus.com/about/ctoinsights.knol" id="p1">ABOUT</a></li>
+                    <li><a href="http://www.knoldus.com/work/services.knol">WORK</a></li>
+                    <li><a href="http://www.knoldus.com/work/services/why-knoldus-for-scala.knol">CONTACT</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">@content</ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <center><h1 style="color:white">@name</h1></center>
+    </div>
+
+</div>
+
+</body>
+</html>

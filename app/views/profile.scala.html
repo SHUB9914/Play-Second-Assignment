@@ -1,0 +1,61 @@
+@(username:String,name:String,mname:String,lname:String,age:Int,mobile:String,gender:String,hobbies:List[String])
+<html>
+<body>
+
+@*adding heder part*@
+@header("Welcome!  "+name , logout())
+
+<div class="container">
+    <h2><center><span style="color:blue">User Information</span></center></h2><br>
+
+    <table class="table table-striped">
+
+        <tbody>
+        <tr>
+            <th>User-Name</th>
+            <td>@username </td>
+
+        </tr>
+        <tr>
+            <th>Name</th>
+            <td>@name  @mname</td>
+
+        </tr>
+        <tr>
+            <th>Last Name</th>
+            <td>@lname</td>
+
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>@age</td>
+
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td>@gender</td>
+
+        </tr>
+
+        <tr>
+            <th>Mobile No</th>
+            <td>@mobile</td>
+
+        </tr>
+
+        <tr>
+            <th>Hobbies</th>
+            <td>
+                @for(i <- hobbies){
+                @i<span>,</span>
+                }
+
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+
+@(message1: String, userForm: Form[models.UserData],status:String)(implicit message: Messages)
+@import play.api.i18n.MessagesApi
+@import  play.api.i18n.Messages
+<head>
+    <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("bootstrap/bootstrap.min.css")">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+    <script src="@routes.Assets.versioned("bootstrap/bootstrap.min.js")" type="text/javascript"></script>
+     <script src="@routes.Assets.versioned("bootstrap/jqr.js")" type="text/javascript"></script>
+</head>
+<body>
+@header("Knolus Software LLP",sinupAndLogin())
+<div class ="container" style="margin-top:30px;">
+@helper.form(action = routes.SignupController.createUser(), 'name -> "myform", 'class -> "form-horizontal" , 'onsubmit -> "return validate()") {
+@helper.inputText(userForm("username"),
+
+        '_label -> "User name:",
+        'class -> "form-control")
+@helper.inputText(userForm("firstname"),
+
+        '_label -> "First Name:",
+        'class -> "form-control")
+
+    @helper.inputText(userForm("middlename"),
+
+    '_label -> "Middle Name:",
+    'class -> "form-control")
+
+ @helper.inputText(userForm("lastname"),
+
+        '_label -> "Last name:",
+        'class -> "form-control")
+
+@helper.inputText(userForm("age"),
+
+        '_label -> "Age:",
+        'class -> "form-control")
+
+@helper.inputPassword(userForm("pass"),
+
+        '_label -> "Password:",
+        'class -> "form-control")
+
+ @helper.inputPassword(userForm("repass"),
+
+        '_label -> "Re-Enter-password:",
+        'class -> "form-control")
+
+  @helper.inputText(userForm("mobile"),
+
+        '_label -> "Mobile_No:",
+        'class -> "form-control")
+
+
+    <label>Gender:</label>
+    <label><input type="radio" name="gender" value="Male">Male</label>
+    <label><input type="radio" name="gender" value="Female">Female</label><br><br>
+
+    <label>Hobbies:</label>
+    <label class="checkbox-inline"><input type="checkbox" value="Gaming" name="hobbies[]">Gaming</label>
+    <label class="checkbox-inline"><input type="checkbox" value="Singing"  name="hobbies[]">Singing</label>
+    <label class="checkbox-inline"><input type="checkbox" value="Dancing"  name="hobbies[]">Dancing</label><br/>
+
+    <input type="hidden" name="status"
+           @if(status=="admin"){
+    value="true"
+    }
+    else{
+    value="false"
+    }>
+
+   <br>
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block ">Submit</button>
+}
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    function validate(){
+   var fname = myform.firstname.value;
+   var pass= myform.pass.value;
+   var age = myform.age.value;
+   var repass= myform.repass.value;
+   var mobile = (myform.mobile.value).length;
+    var pattern = new RegExp(/[~`!#$%\^&*+=\-\[\]\\';,/{}|\\":<>\?]/);
+    if (pattern.test(fname)) {
+
+       alert("Please only use standard alphanumerics");
+        return false;
+    }
+       if(pass.length >= 5) {
+       if(pass!=repass){
+        alert("password is not same");
+        return false;
+        }
+        }
+        else{
+        alert("password should be minimum 5 character");
+        return false;
+        }
+
+       if(mobile < 10 || mobile > 10){
+
+       alert("number should have 10 character ");
+       return false;
+       }
+       if(age<18 || age > 75){
+       alert("not valid age ")
+       return false;
+
+       }
+    }
+</script>
+</body>
